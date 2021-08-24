@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Users</h1>
+    <h1>Dogs</h1>
 
     <input v-model="input" type="text" />
     <button>Add</button>
