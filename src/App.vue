@@ -1,32 +1,41 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div>
+    <h1>Users</h1>
+
+    <input v-model="input" type="text" />
+    <button>Add</button>
+
+    <div v-for="(u, i) in users" :key="i">
+      <p>{{ u }}</p>
     </div>
-    <router-view />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  data() {
+    return {
+      input: "",
+      users: [],
+    };
+  },
+  created () {
+    console.log(this);
+  },
+  methods: {
+    addUser() {
+      const user = {
+        id: 1,
+        name: this.input,
+      }
 
-#nav {
-  padding: 30px;
-}
+      this.users.push(user);
+    },
+    removeUser() {
+      console.log(this.users);
+    }
+  },
+};
+</script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>
