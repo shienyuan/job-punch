@@ -1,41 +1,18 @@
 <template>
   <div>
-    <h1>Dogs</h1>
-
-    <input v-model="input" type="text" />
-    <button>Add</button>
-
-    <div v-for="(u, i) in users" :key="i">
-      <p>{{ u }}</p>
-    </div>
+    <router-view />
+    <Navbar/>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      input: "",
-      users: [],
-    };
-  },
-  created () {
-    console.log(this);
-  },
-  methods: {
-    addUser() {
-      const user = {
-        id: 1,
-        name: this.input,
-      }
-
-      this.users.push(user);
-    },
-    removeUser() {
-      console.log(this.users);
-    }
+  components: {
+    Navbar: () => import("./layouts/Navbar.vue"),
   },
 };
 </script>
 
-<style></style>
+<style lang="scss">
+@import "~@/assets/scss/vendors/bootstrap-vue/index";
+
